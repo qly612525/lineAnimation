@@ -17,25 +17,36 @@ describe('Vector Rotate Calculate.', () => {
   it('vector b (1.0, 1.0) rotate to vector a (0.0, 1.0) should be 45 degree.', () => {
     const va = new Vector([0.0, 1.0])
     const vb = new Vector([1.0, 1.0])
-    expect(vb.rotateTo(va)).toBeCloseTo(Vector.degreeToRadian(45))
+    expect(vb.calcRotateRadian(va)).toBeCloseTo(Vector.degreeToRadian(45))
   })
 
   it('vector a (0.0, 1.0) rotate to vector b (1.0, 1.0) should be -45 degree.', () => {
     const va = new Vector([0.0, 1.0])
     const vb = new Vector([1.0, 1.0])
-    expect(va.rotateTo(vb)).toBeCloseTo(Vector.degreeToRadian(-45))
+    expect(va.calcRotateRadian(vb)).toBeCloseTo(Vector.degreeToRadian(-45))
   })
 
   it('vector b (1.0, -1.0) rotate to vector a (0.0, 1.0) should be 135 degree.', () => {
     const va = new Vector([0.0, 1.0])
     const vb = new Vector([1.0, -1.0])
-    expect(vb.rotateTo(va)).toBeCloseTo(Vector.degreeToRadian(135))
+    expect(vb.calcRotateRadian(va)).toBeCloseTo(Vector.degreeToRadian(135))
   })
 
   it('vector a (1.0, 1.0) rotate to vector b (1.0, 1.0) should be 0 degree.', () => {
     const va = new Vector([1.0, 1.0])
     const vb = new Vector([1.0, 1.0])
-    expect(va.rotateTo(vb)).toBeCloseTo(Vector.degreeToRadian(0))
+    expect(va.calcRotateRadian(vb)).toBeCloseTo(Vector.degreeToRadian(0))
+  })
+})
+
+/**
+ * 向量间的旋转处理
+ */
+describe('Vector rotate handle.', () => {
+  it('vector b (1.0, 1.0) rotate to vector a (0.0, 1.0) based special speed rotate handle.', () => {
+    const va = new Vector([0.0, 1.0])
+    const vb = new Vector([1.0, 1.0])
+    expect(vb.rotateTo(va, (num: number) => console.log(num)).length).toEqual(16)
   })
 })
 
