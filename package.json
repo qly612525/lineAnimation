@@ -1,6 +1,6 @@
 {
-  "name": "@QianLeYi/line-animation",
-  "version": "0.0.0",
+  "name": "@qianly/line-animation",
+  "version": "0.1.0",
   "description": "",
   "keywords": [],
   "main": "dist/line-animation.umd.js",
